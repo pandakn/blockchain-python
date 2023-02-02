@@ -18,12 +18,6 @@ class Blockchain:
 
         self.blocks.append(block)
 
-    def validate(self):
-        for i in range(1, len(self.blocks)):
-            if self.blocks[i].prev_hash != self.blocks[i-1].hash:
-                return False
-        return True
-
     def display(self):
         for block in self.blocks:
             print(f'Index : {block.index}')
@@ -58,11 +52,11 @@ class Condo:
             'province': self.province,
             'price': self.price,
             'buyer': buyer,
-            'timestamp': str(datetime.now())
+            'timestamp': '31-12-2022'
         }
 
         blockchain.add_block(transaction_data)
-
+    
 
 blockchain = Blockchain()
 
@@ -91,6 +85,3 @@ condo_i.purchase('Jack The Ghost')
 condo_j.purchase('Mike Wazowski')
 
 blockchain.display()
-
-# Validate the blockchain
-# print(f'Blockchain is valid : {blockchain.validate()}')
